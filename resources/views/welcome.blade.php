@@ -28,6 +28,11 @@
                     ">User Details</a>
                 </p>
                 @endforeach
+                <p>
+                    <a style="text-decoration: none;"
+                    href=" {{ route('users.comments.show' , ['user' => $user->id]) }}
+                    ">Name Prefixes</a>
+                </p>
             </div>
         </div>
     </body>

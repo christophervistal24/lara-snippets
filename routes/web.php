@@ -1,5 +1,7 @@
 <?php
 Route::get('/' , 'WelcomeController@index');
+
+
 /**
  * Wildcard parameter with strict & and Name Route
  */
@@ -47,4 +49,19 @@ Route::get('/login' , 'WelcomeController@login')->name('login');
 
 /**
  * Name Prefixes
- */
+*/
+Route::group(['as' => 'users.' , 'prefix' => 'users'] , function () {
+    Route::group(['as' => 'comments.' , 'prefix' => 'comments'] , function () {
+        Route::get('{id}' , function ($id) {
+            return $id;
+        })->name('show');
+        Route::get('/testing' , function () {
+            return 'Testing Name Prefixes';
+        });
+    });
+});
+
+
+
+Route::get('posts/create' , 'PostsController@create');
+Route::post('posts' , 'PostsController@store');
