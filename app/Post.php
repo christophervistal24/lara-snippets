@@ -9,4 +9,9 @@ class Post extends Model
     protected $fillable = [
         'title', 'body'
     ];
+
+    public function post_list()
+    {
+        return static::all();
+    }
 }
