@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Blade;
+use App\Post;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -56,6 +58,9 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('partials.first',\App\Http\ViewComposers\RecentPostsComposer::class);
+        Blade::if('complete',function ($post) {
+            return $post->is_complete;
+        });
 
     }
 

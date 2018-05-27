@@ -43,8 +43,15 @@
                     <li>{{ $post }}</li>
                 @endforeach
                 @foreach ($posts2 as $post)
+               {{--  @complete($post->)
+                   {{ 'Complete' }}
+                    @else
+                    {{ 'Complete' }}
+                @endcomplete --}}
                     <li>{{ $post }}</li>
                 @endforeach
+
+
                 </ul>
             </div>
         </div>
