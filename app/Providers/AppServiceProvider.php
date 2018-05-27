@@ -55,6 +55,8 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
+        view()->composer('partials.first',\App\Http\ViewComposers\RecentPostsComposer::class);
+
     }
 
     /**
