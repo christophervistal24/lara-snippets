@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Post;
 class TestController extends Controller
 {
     public function __construct()
@@ -39,12 +40,13 @@ class TestController extends Controller
         ]);
 
        //if passed
-       return redirect('response_test')->withInput(
-        [
-            'username'        => request('username'),
-            'password'        => request('password'),
-            'retype_password' => request('password_confirmation'),
-        ]
-    );
+       return redirect('response_test')->withInput(request()->all());
+    }
+
+    public function pdf_download()
+    {
+        $file = public_path() . '/download/testfile.pdf';
+        $header = ['Content-Type:Application/pdf'];
+        return response()->download($file,'testing.pdf',$header);
     }
 }

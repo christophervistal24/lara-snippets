@@ -86,3 +86,6 @@ Route::post('/form' , 'TestController@login');
 Route::get('/response_test' , function () {
      return response()->make(old());
 });
+
+//response download
+Route::get('/pdf_download' , 'TestController@pdf_download');
