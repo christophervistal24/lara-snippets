@@ -33,6 +33,10 @@
                     href=" {{ route('users.comments.show' , ['user' => $user->id]) }}
                     ">Name Prefixes</a>
                 </p>
+                 <p>
+                    <a style="text-decoration: none;"
+                    href="{{ url('/tasks') }}">Posts</a>
+                </p>
             </div>
         </div>
     </body>

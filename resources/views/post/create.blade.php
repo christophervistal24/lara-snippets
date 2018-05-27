@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="/posts">
+<form method="POST" action="/tasks">
     {{ csrf_field() }}
     <fieldset class="form-group">
         <label for="username">Username</label>

@@ -14,7 +14,6 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -24,7 +23,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('post.create');
+        return view('post.create')
+               ->with(['error' => true , 'message' => 'woops']);
     }
 
     /**
@@ -50,7 +50,7 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return $post;
     }
 
     /**

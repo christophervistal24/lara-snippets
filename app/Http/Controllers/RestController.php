@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class RestController extends Controller
 {
@@ -13,7 +14,8 @@ class RestController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('post.showall',compact('posts'));
     }
 
     /**
@@ -23,7 +25,7 @@ class RestController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -34,7 +36,11 @@ class RestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::create([
+            'title' => $request->username,
+            'body'  => $request->username,
+        ]);
+        return redirect('/tasks');
     }
 
     /**
@@ -45,7 +51,8 @@ class RestController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post.display',compact('post'));
     }
 
     /**
@@ -56,7 +63,8 @@ class RestController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post.edit',compact('post'));
     }
 
     /**
@@ -68,7 +76,11 @@ class RestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post        = Post::find($id);
+        $post->title = $request->title;
+        $post->body  = $request->body;
+        $post->save();
+        return redirect('/tasks');
     }
 
     /**
@@ -79,6 +91,7 @@ class RestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Post::where('id', $id)->delete();
+        return redirect('/tasks');
     }
 }

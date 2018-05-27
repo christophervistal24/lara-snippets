@@ -24,7 +24,6 @@ Route::get('/test/{user}','WelcomeController@get')->name('user.show')->where(['u
 
 
 Route::get('/login' , 'WelcomeController@login')->name('login');
-
 /**
  * Prefix Route
  */
@@ -65,3 +64,25 @@ Route::group(['as' => 'users.' , 'prefix' => 'users'] , function () {
 
 Route::get('posts/create' , 'PostsController@create');
 Route::post('posts' , 'PostsController@store');
+Route::get('posts/{post}' , 'PostsController@show');
+
+/**
+ * Checking if you are already logged if not then you will
+automatically redirect to the login form
+ */
+/*Route::group(['middleware' => 'auth'] , function () {
+    Route::resource('tasks','RestController');
+});
+*/
+/**
+ * Let the resource method handle all the HTTP VERBS
+ */
+Route::resource('tasks','RestController');
+Route::get('/form'  , function () {
+    return view('form');
+});
+
+Route::post('/form' , 'TestController@login');
+Route::get('/response_test' , function () {
+     return response()->make(old());
+});
