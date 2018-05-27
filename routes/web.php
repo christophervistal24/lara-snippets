@@ -89,3 +89,7 @@ Route::get('/response_test' , function () {
 
 //response download
 Route::get('/pdf_download' , 'TestController@pdf_download');
+Route::get('/sharedfirst' , 'TestController@sharedfirst');
+Route::get('/sharedsecond' , 'TestController@sharedsecond');
+Route::get('/sharedthird' , 'TestController@sharedthird');
+

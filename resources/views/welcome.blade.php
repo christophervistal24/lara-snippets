@@ -37,6 +37,15 @@
                     <a style="text-decoration: none;"
                     href="{{ url('/tasks') }}">Posts</a>
                 </p>
+                Shared Variable
+                <ul>
+                @foreach ($posts as $post)
+                    <li>{{ $post }}</li>
+                @endforeach
+                @foreach ($posts2 as $post)
+                    <li>{{ $post }}</li>
+                @endforeach
+                </ul>
             </div>
         </div>
     </body>

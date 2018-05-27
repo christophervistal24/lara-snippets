@@ -10,7 +10,7 @@
                 <p>{{ $e }}</p>
             @endforeach
         @endif
-        <form action="/form" method="POST">
+             <form action="/form" method="POST">
             {{ csrf_field() }}
             <label for="">Username</label>
             <input type="text" name="username">

@@ -49,4 +49,20 @@ class TestController extends Controller
         $header = ['Content-Type:Application/pdf'];
         return response()->download($file,'testing.pdf',$header);
     }
+
+    public function sharedfirst()
+    {
+        return view('partials.first');
+    }
+
+    public function sharedsecond()
+    {
+        return view('partials.second');
+
+    }
+
+    public function sharedthird()
+    {
+        return view('partials.third');
+    }
 }
